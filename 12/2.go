@@ -5,6 +5,7 @@ import "fmt"
 /*타입문 작성은 선택입니다*/
 
 func calCoin(coin int) func(count int) int { 
+    //calCoin(10) func(count int) int
 	return func(count int) int { //클로저
 		return coin * count
 	}
@@ -19,7 +20,13 @@ func main() {
 		return
 	}
 	
-	add10 := calCoin(10)
+	add10 := calCoin(10) 
+	 /* 
+	 func(count int) int //클로저
+	    return 10 * count
+     }
+	 */
+
 	add50 := calCoin(50)
 	add100 := calCoin(100)
 	add500 := calCoin(500)
