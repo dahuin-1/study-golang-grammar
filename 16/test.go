@@ -1,8 +1,8 @@
 package main
 
 import (
-    "fmt"
-    //"log"
+	"fmt"
+    "log"
 )
 
 func errorChek(score int) (int, error) {
@@ -19,8 +19,7 @@ func main() {
     s, err := errorChek(score)
     
     if err != nil {
-        //log.Panic(err)
-		fmt.Println("testtest")
+        log.Panic(err)
     }
     fmt.Printf("시험 점수는 %d점입니다.",s)
 }
