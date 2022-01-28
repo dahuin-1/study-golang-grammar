@@ -1,12 +1,33 @@
 package main
-
-import "fmt"
-
-func testGo() {
-	fmt.Println("Hello goorm!")
-}
-
+ 
+import (
+    "fmt"
+    "sync"
+)
+ 
 func main() {
-	go testGo() //고루틴으로 비동기 실행
-	fmt.Scanln()
+    var wait sync.WaitGroup
+    wait.Add(102)
+ 
+	str := "goorm!"
+	
+    go func() {
+        defer wait.Done()
+        fmt.Println("Hello")
+    }()
+	
+	go func() {
+        defer wait.Done()
+        fmt.Println(str)
+    }()
+ 
+	for i := 0; i<100; i++ {
+		go func(n int) {
+			defer wait.Done()
+			
+			fmt.Println(n)
+		}(i)
+	}
+ 
+    wait.Wait()
 }
