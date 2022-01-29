@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-var g float32 = 9.8
+var gravity = 9.8
 
 type cal func(float32, float32) float32 
 //calMechEnergy() 함수에 매개변수로서 함수를 사용하기 위해 type문으로 main 내 두 함수의 원형을 정의
@@ -20,7 +20,7 @@ func main() {
 		return (i * j * j) / 2
 	}
 	potEnergy := func(i float32, j float32) float32 { //위치 에너지를 계산하는 익명 함수를 potEnergy 변수에 초기화
-		return i * j * g
+		return i * j * float32(gravity)
 	}
 	
 	ke := calMechEnergy(kinEnergy, m, v) //운동에너지
