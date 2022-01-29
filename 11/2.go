@@ -17,8 +17,8 @@ func inputNums() []int {
 
 
 func calExam(arr []int) (totalScore int, overCount int, underCount int) {
-	overCount = 0;
-	underCount = 0;
+	//overCount = 0
+	//underCount = 0
 	for i := 0; i < len(arr); i++ {
 		totalScore += arr[i]
 		if arr[i] >= 90 {
