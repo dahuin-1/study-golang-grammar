@@ -12,44 +12,45 @@ type student struct {
 	gender 	string
 	data 	map[string]int
 }
-
+//생성자함수
 func newStudent() *student { //포인터 구조체를 반환함
-	d := student{} //구조체 객체를 생성하고 초기화함
-	d.data = map[string]int{}
-	return &d //초기화 한 포인터 구조체를 반환함
+	s := student{} //구조체 객체를 생성하고 초기화함
+	s.data = map[string]int{}
+	return &s //초기화 한 포인터 구조체를 반환함
 }
 
 func main() {
-	var studentNum, subjetNum int
-	var subjetName, name, gender string
+	var studentNum, subjectNum, score int
+	var subjectName, name, gender string
 	
-	fmt.Scanln(&studentNum, &subjetNum)
+	fmt.Scanln(&studentNum, &subjectNum)
 	
-	var s = make([]student, numOfStudent)
+	var studentList = make([]student, studentNum)
 	
-	for i := range studentNum { {	
+	for i :=0; i < studentNum; i++ { 
 		fmt.Scanln(&name, &gender)
 		s1 := newStudent() //생성자 호출을 통한 student 객체 생성
 
 		s1.name = name
 		s1.gender = gender
 		
-		for j := range subjetNum {
-			fmt.Scanln(&subjetName, &score)
+		for j :=0; j < subjectNum; j++ {
+			fmt.Scanln(&subjectName, &score)
 
 			s1.data[subjectName] = score
 		}
-		s[i] = *s1
+		studentList[i] = *s1
 	}
 	
-	for i := range studentNum {
+	for i :=0; i < studentNum; i++ { 
 		fmt.Println("----------")
+		fmt.Println(studentList[i].name, studentList[i].gender)
 		
-		
-		for index, val := range s[i].score {
+		for index, val := range studentList[i].data {
 			fmt.Println(index, val)
 		}
 		
 	}
 	fmt.Println("----------")
+	
 }
