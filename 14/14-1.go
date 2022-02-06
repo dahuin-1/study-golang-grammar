@@ -40,15 +40,14 @@ func (cu cuboid) volume() float64 {
 func main() {
 	cy1 := cylinder{10, 10}
 	cy2 := cylinder{4.2, 15.6}
-	cu1 := cuboid{}
-	cu2 := cuboid{}
+	cu1 := cuboid{10.5, 20.2, 20}
+	cu2 := cuboid{4, 10, 23}
 	
 	printMeasure(cy1, cy2, cu1, cu2)	
 }
 
 func printMeasure(m ...geometry) {
 	for _, val := range m {
-		fmt.Println(val.area())
-		fmt.Println(val.volume())
+		fmt.Printf("%.2f, %.2f\n", val.area(), val.volume())
 	}
 }
